@@ -14,11 +14,18 @@ import java.util.NoSuchElementException;
 
 /**
  *  @author Brendan Duke
+ *  The array resizes if the size of the queue is greater than half the
+ *  array size, or less than 1/4.
+ *  Dequeueing to 0 or enqueueing past the end of the array causes the queue
+ *  to get re-centered in the middle of the array.
+ *  A smarter solution would be to wrap around, as in the solution by
+ *  Sedgewick and Wayne at 
+ *  <a href="http://algs4.cs.princeton.edu/13stacks/ResizingArrayQueue.java">ResizingArrayQueue</a>.
  */
 public class MyResizingArrayQueue<Item> {
   private Item[] a;
-  private int first; // Index of first element in queue.
-  private int last; // Points one past last element in queue.
+  private int first = 0; // Index of first element in queue.
+  private int last = 0; // Points one past last element in queue.
 
   @SuppressWarnings("unchecked")
   public MyResizingArrayQueue() {

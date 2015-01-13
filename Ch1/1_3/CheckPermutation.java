@@ -6,13 +6,12 @@
  *  Checks if a given permutation of numbers
  *  can be produced by a sequence of pushes of the numbers from 0, ...,N-1
  *  and intermixed N pops.
- *
+ *  Produces result in linear time (big theta N)
  *
  *************************************************************************/
 
 /**
  *  @author Brendan Duke
- *  Implementation of problem 1.3.46 in Sedgewick
  *  
  */
 public class CheckPermutation {

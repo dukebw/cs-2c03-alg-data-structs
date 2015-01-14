@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
  *  
  */
 public class DoubleLinked<Item> implements Iterable<Item> {
-  private int N; // size of linked list.
+  private int N = 0; // size of linked list.
   private DoubleNode<Item> first; // head of linked list.
   private DoubleNode<Item> last; // tail of linked list.
 
@@ -50,8 +50,19 @@ public class DoubleLinked<Item> implements Iterable<Item> {
    */
   public static <T>
   DoubleLinked<T> insertBegin(T item, DoubleLinked<T> list) {
+    if(list == null) {
+      throw new NoSuchElementException("Insert to null list.");
+    }
     DoubleLinked<T> result = copy(list);
-    result.first = new DoubleNode<T>(item, result.first, null);
+    if(result.first == null) {
+      result.first = new DoubleNode<T>(item, null, null);
+      result.last = result.first;
+    }
+    else {
+      DoubleNode<T> tempNode = result.first;
+      result.first = new DoubleNode<T>(item, tempNode, null);
+      tempNode.previous = result.first;
+    }
     return result;
   }
 
@@ -59,9 +70,21 @@ public class DoubleLinked<Item> implements Iterable<Item> {
    * Inserts at the end of the doubly-linked list.
    * @return a copy of the linked list with the new node inserted.
    */
-  public static <T> DoubleLinked<T> insertEnd(T item, DoubleLinked<T> list) {
+  public static <T>
+  DoubleLinked<T> insertEnd(T item, DoubleLinked<T> list) {
+    if(list == null) {
+      throw new NoSuchElementException("Insert to null list.");
+    }
     DoubleLinked<T> result = copy(list);
-    result.last = new DoubleNode<T>(item, null, result.last);
+    if(result.first == null) {
+      result.first = new DoubleNode<T>(item, null, null);
+      result.last = result.first;
+    }
+    else {
+      DoubleNode<T> tempNode = result.last;
+      result.last = new DoubleNode<T>(item, null, tempNode);
+      tempNode.next = result.last;
+    }
     return result;
   }
 
@@ -69,20 +92,54 @@ public class DoubleLinked<Item> implements Iterable<Item> {
    * Creates a copy of an input list.
    * @return a copy of the doubly-linked list given as input.
    */
-  public static <T> DoubleLinked<T> copy(DoubleLinked<T> input) {
+  public static <T>
+  DoubleLinked<T> copy(DoubleLinked<T> input) {
     DoubleLinked<T> result = new DoubleLinked<T>();
+    if(input == null) {
+      return null;
+    }
+    if(input.first == null) {
+      return result;
+    }
     for(Iterator<T> it = input.iterator(); it.hasNext();) {
-      result = insertEnd(it.next(), result);
+      T next = it.next();
+      if(result.first == null) {
+        result.first = new DoubleNode<T>(next, null,null);
+        result.last = result.first;
+      }
+      else {
+        DoubleNode<T> tempNode = result.last;
+        result.last = new DoubleNode<T>(next, null, result.last);
+        tempNode.next = result.last;
+      }
     }
     return result;
   }
 
-    /** 
-     * Returns an iterator to this doubly-linked list that iterates through the 
-     * items in order from first to last.
-     * @return an iterator to this stack that iterates through the items in
-     * order from first to last.
-     */
+  /**
+   * Returns a string representation of the doubly-linked list.
+   * @return a string representation of the doubly-linked list given as 
+   * input.
+   */
+  public static <T>
+  String toString(DoubleLinked<T> list) {
+    String result = "[";
+    String nextString;
+    for(Iterator<T> it = list.iterator(); it.hasNext();) {
+      result += it.next().toString();
+      String append = it.hasNext() ? ", " : "]";
+      result += append;
+    }
+    return result;
+  }
+
+  /** 
+   * Returns an iterator to this doubly-linked list that iterates through 
+   * the
+   * items in order from first to last.  @return an iterator to this stack
+   * that iterates through the items in
+   * order from first to last.
+   */
     public Iterator<Item> iterator()  { 
       return new ListIterator();  
     }
@@ -111,8 +168,15 @@ public class DoubleLinked<Item> implements Iterable<Item> {
 
   // NOTE(brendan): testing
   public static void main(String[] args) {
+    DoubleLinked<String> list = new DoubleLinked<String>();
     while (!StdIn.isEmpty()) {
-      Integer item = Integer.parseInt(StdIn.readString());
+      String item = StdIn.readString();
+      if(item.equals("print")) {
+        System.out.println(toString(list));
+      }
+      else {
+        list = insertEnd(item, list);
+      }
     }
   }
 }

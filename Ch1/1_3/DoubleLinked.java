@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Compilation:  javac DoubleLinked.java
  *  Execution:    java DoubleLinked < input.txt
- *  Updated:      Jan. 13, 2015
+ *  Updated:      Jan. 14, 2015
  *  
  *  Nested class DoubleNode for building doubly-linked lists.
  *  Static methods for: insert at beginning, insert at end, remove from

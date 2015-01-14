@@ -5,6 +5,9 @@
  *  
  *  Like a stack or queue but supports adding or removing items at both
  *  ends.
+ *  Testing: Use "L string" to pushLeft string, "R string" to pushRight string,
+ *  "l string" to popLeft string, "r string" to popRight string, and "print"
+ *  to print the string from first to last.
  *
  *************************************************************************/
 

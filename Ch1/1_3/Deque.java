@@ -3,6 +3,9 @@
  *  Execution:    java Deque < input.txt
  *  Updated:      Jan. 14, 2015
  *  
+ *  May require I/O library files from Sedgewicks "Algorithms".
+ *  http://algs4.cs.princeton.edu/code/
+ *
  *  Like a stack or queue but supports adding or removing items at both
  *  ends.
  *  Testing: Use "L string" to pushLeft string, "R string" to pushRight string,

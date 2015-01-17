@@ -2,6 +2,9 @@
  *  Compilation:  javac CheckPermutation.java
  *  Execution:    java CheckPermutation < input.txt
  *  Updated:      Jan. 13, 2015
+ *  
+ *  May require I/O library files from Sedgewicks "Algorithms".
+ *  http://algs4.cs.princeton.edu/code/
  *
  *  Checks if a given permutation of numbers
  *  can be produced by a sequence of pushes of the numbers from 0, ...,N-1

@@ -3,6 +3,9 @@
  *  Execution:    java MyResizingArrayQueue < input.txt
  *  Updated:      Jan. 11, 2015
  *
+ *  May require I/O library files from Sedgewicks "Algorithms".
+ *  http://algs4.cs.princeton.edu/code/
+ *  
  *  A generic queue, implemented using a resizing array.
  *
  *  % java MyResizingArrayQueue < tobe.txt 

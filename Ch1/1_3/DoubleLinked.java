@@ -3,6 +3,9 @@
  *  Execution:    java DoubleLinked < input.txt
  *  Updated:      Jan. 14, 2015
  *  
+ *  May require I/O library files from Sedgewicks "Algorithms".
+ *  http://algs4.cs.princeton.edu/code/
+ *
  *  Nested class DoubleNode for building doubly-linked lists.
  *  Static methods for: insert at beginning, insert at end, remove from
  *  beginning, remove from end, insert before a given node, insert after a

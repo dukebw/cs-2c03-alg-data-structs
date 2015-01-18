@@ -24,13 +24,11 @@ public class ThreeSumFaster {
     return false;
   }
 
-  /**
-   * Prints to standard output the (i, j, k) with i < j < k such that a[i] +
-   * a[j] + a[k] == 0.
-   * @param a the array of integers
-   * @throws IllegalArgumentException if the array contains duplicate 
-   * integers
-   */
+    /** Returns the number of triples (i, j, k) with i < j < k such that 
+     * a[i] + a[j] + a[k] == 0.  @param a the array of integers 
+     * @return the number of
+     * triples (i, j, k) with i < j < k such that a[i] + a[j] + a[k] == 0
+     */
   public static int count(int[] a) {
     int N = a.length;
     Arrays.sort(a);

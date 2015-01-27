@@ -1,7 +1,8 @@
 /*************************************************************************
  *  Compilation:  javac SortCompare.java
- *  Execution:    java SortCompare < input.txt
- *  Updated:      Jan. 25/15
+ *  Execution:    java SortCompare alg1 alg2 numberOfValues numberOfArrays
+ *  e.g. java SortCompare Shell Merge 100000 10
+ *  Updated:      Jan. 27/15
  *  
  *  May require I/O library files from Sedgewicks "Algorithms".
  *  http://algs4.cs.princeton.edu/code/
